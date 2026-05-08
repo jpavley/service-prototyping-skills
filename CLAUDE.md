@@ -16,7 +16,7 @@ The rules in this repo govern this repo. When editing any file here:
 
 ## Don't Fix the Cross-References
 
-`.claude/rules/scope.md` mentions `DECISIONS.md` and `DEFERRED.md` at "repo root". `.claude/rules/doc-density.md` mentions `DENSITY_BUDGET.md` at "repo root". These point to the *consumer's* repo root, not this one. Templates live in `templates/`; live versions do not exist here. Do not rewrite the references to point at `templates/...` — they are correct as-is.
+Files in `.claude/rules/` and `.claude/commands/` reference companion files (`DECISIONS.md`, `DEFERRED.md`, `DENSITY_BUDGET.md`, `TODO.md`, `DONE.md`) at "repo root". They mean the *consumer's* repo root, not this one. Templates live in `templates/`; live versions do not exist here. Do not rewrite the references to point at `templates/...` — they are correct as-is.
 
 ## Workflow
 
