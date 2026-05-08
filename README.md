@@ -15,22 +15,27 @@ Three opinionated rules for prototyping integration services. Copy them into a p
 
 ## Setup
 
-From your project's repo root:
+Make sure you have a copy of this repository on your computer (cloned with git or downloaded and extracted).
 
-```bash
-SOURCE=/Users/johnpavley/Developer/service-prototyping-skills
+**Step 1.** In your project's root directory, create two new folders:
 
-mkdir -p .claude/rules skills/api-discovery
-cp "$SOURCE/.claude/rules/"*.md .claude/rules/
-cp "$SOURCE/skills/api-discovery/SKILL.md" skills/api-discovery/
+- `.claude/rules`
+- `skills/api-discovery`
 
-# Companion files at repo root — copy once, then edit per project
-for f in DENSITY_BUDGET.md DECISIONS.md DEFERRED.md; do
-  [ -f "$f" ] || cp "$SOURCE/templates/$f" .
-done
-```
+**Step 2.** Copy these six files from this repository into your project. Keep the same folder layout:
 
-Then add a pointer to `CLAUDE.md` so Claude reads the rules each session:
+| File in this repository         | Where it goes in your project |
+| ------------------------------- | ----------------------------- |
+| `.claude/rules/scope.md`        | `.claude/rules/`              |
+| `.claude/rules/doc-density.md`  | `.claude/rules/`              |
+| `skills/api-discovery/SKILL.md` | `skills/api-discovery/`       |
+| `templates/DENSITY_BUDGET.md`   | root directory                |
+| `templates/DECISIONS.md`        | root directory                |
+| `templates/DEFERRED.md`         | root directory                |
+
+If your project already has `DENSITY_BUDGET.md`, `DECISIONS.md`, or `DEFERRED.md`, leave them in place — do not overwrite.
+
+**Step 3.** Open your project's `CLAUDE.md` (create one in the root directory if it does not exist) and add these lines:
 
 ```
 Before any work, read:
@@ -38,6 +43,23 @@ Before any work, read:
 - `.claude/rules/doc-density.md` — doc length and prose
 - `DENSITY_BUDGET.md` — per-project length caps
 - `DECISIONS.md` and `DEFERRED.md` — running logs
+```
+
+**Step 4.** Open `DENSITY_BUDGET.md` in your project. The default line caps are a starting point — adjust them if your project needs different limits.
+
+When you are done, your project should include these files:
+
+```
+your-project/
+├── CLAUDE.md
+├── DECISIONS.md
+├── DEFERRED.md
+├── DENSITY_BUDGET.md
+├── .claude/rules/
+│   ├── scope.md
+│   └── doc-density.md
+└── skills/api-discovery/
+    └── SKILL.md
 ```
 
 ## How the Files Reference Each Other
@@ -48,4 +70,4 @@ Before any work, read:
 
 ## Updating
 
-These files are canonical here. To propagate a change, re-run the `cp` commands above. Don't edit the copies in your projects — they will drift.
+These files are canonical here. When you change one, copy it again into each project that uses it. Don't edit the copies in your projects — they will drift.
