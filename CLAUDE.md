@@ -30,6 +30,6 @@ Before committing changes, run these checks:
 
 | Check | Reference |
 | --- | --- |
-| Line counts under budget | `templates/DENSITY_BUDGET.md` |
+| Line counts under budget | `templates/DENSITY_BUDGET.md` (also enforced as warn-mode `PostToolUse` hook in `.claude/hooks/check-density-budget.sh`) |
 | Doc-density self-check passes | bottom of `.claude/rules/doc-density.md` |
 | Scope self-check (when touching code or spec) | bottom of `.claude/rules/scope.md` |
