@@ -18,7 +18,7 @@ Make sure you have a copy of this repository on your computer (cloned with git o
 | ------------------------------- | ----------------------------- |
 | `.claude/rules/scope.md`        | `.claude/rules/`              |
 | `.claude/rules/doc-density.md`  | `.claude/rules/`              |
-| `.claude/commands/done.md`      | `.claude/commands/`           |
+| `.claude/commands/sp-done.md`      | `.claude/commands/`           |
 | `skills/api-discovery/SKILL.md` | `skills/api-discovery/`       |
 | `templates/DENSITY_BUDGET.md`   | root directory                |
 | `templates/DECISIONS.md`        | root directory                |
@@ -52,7 +52,7 @@ your-project/
 ├── TODO.md
 ├── .claude/
 │   ├── commands/
-│   │   └── done.md
+│   │   └── sp-done.md
 │   └── rules/
 │       ├── doc-density.md
 │       └── scope.md

@@ -1,5 +1,5 @@
 ---
-description: End session - update docs, commit, and push
+description: End service-prototype session: sync state, update instructions, commit, push
 model: claude-sonnet-4-6
 ---
 

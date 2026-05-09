@@ -32,7 +32,7 @@ copy_if_missing() {
 
 copy_if_missing "$SCRIPT_DIR/.claude/rules/scope.md"        ".claude/rules/scope.md"
 copy_if_missing "$SCRIPT_DIR/.claude/rules/doc-density.md"  ".claude/rules/doc-density.md"
-copy_if_missing "$SCRIPT_DIR/.claude/commands/done.md"      ".claude/commands/done.md"
+copy_if_missing "$SCRIPT_DIR/.claude/commands/sp-done.md"      ".claude/commands/sp-done.md"
 copy_if_missing "$SCRIPT_DIR/skills/api-discovery/SKILL.md" "skills/api-discovery/SKILL.md"
 
 for f in DENSITY_BUDGET.md DECISIONS.md DEFERRED.md TODO.md DONE.md; do

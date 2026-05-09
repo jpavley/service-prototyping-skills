@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Update canonical service-prototyping-skills files in a project.
-# Overwrites: scope.md, doc-density.md, done.md, api-discovery/SKILL.md.
+# Overwrites: scope.md, doc-density.md, sp-done.md, api-discovery/SKILL.md.
 # Never touches templates (TODO/DONE/DECISIONS/DEFERRED). Diffs DENSITY_BUDGET.md.
 # Usage: update.sh [target_directory]   (default: current directory)
 
@@ -37,7 +37,7 @@ update_file() {
 
 update_file "$SCRIPT_DIR/.claude/rules/scope.md"        ".claude/rules/scope.md"
 update_file "$SCRIPT_DIR/.claude/rules/doc-density.md"  ".claude/rules/doc-density.md"
-update_file "$SCRIPT_DIR/.claude/commands/done.md"      ".claude/commands/done.md"
+update_file "$SCRIPT_DIR/.claude/commands/sp-done.md"      ".claude/commands/sp-done.md"
 update_file "$SCRIPT_DIR/skills/api-discovery/SKILL.md" "skills/api-discovery/SKILL.md"
 
 echo

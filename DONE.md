@@ -2,7 +2,7 @@
 
 Completed work, grouped under the same headings as `TODO.md`. Append-only.
 
-See `.claude/commands/done.md` for the sync workflow.
+See `.claude/commands/sp-done.md` for the sync workflow.
 
 ## Initial Build (2026-05-08)
 
