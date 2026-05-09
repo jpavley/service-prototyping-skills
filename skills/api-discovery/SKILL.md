@@ -12,10 +12,11 @@ Before writing integration code against any third-party API where:
 
 ## Pipeline
 
-1. **Probe.** In a sandbox, hit every endpoint the integration will need. Capture full request/response pairs to `discovery/<api-name>/raw/`. One file per endpoint, named by HTTP verb and path.
-2. **Diff against vendor docs.** For each endpoint, note where the actual response differs from what vendor docs claim. Wrong types, missing fields, fields present but always null, undocumented fields, pagination behavior, error shapes.
-3. **Distill.** Write `skills/<api-name>/SKILL.md` from observations only. Do not import vendor doc text. If you didn't observe it, it doesn't go in the skill.
-4. **Verify.** Have Claude write the integration against the new skill. Every time it asks a question the skill should have answered, the skill is incomplete — update it before continuing.
+1. **Confirm access.** Check for public docs, public sandbox, or unauthenticated endpoints before treating credentials as a blocker. If genuinely blocked, scaffold `skills/<api-name>/SKILL.md` from the Output Template (preserve the Contents column as imperatives, leave bodies empty), log the blocker as a TODO, and stop.
+2. **Probe.** In a sandbox, hit every endpoint the integration will need. Capture full request/response pairs to `discovery/<api-name>/raw/`. One file per endpoint, named by HTTP verb and path.
+3. **Diff against vendor docs.** For each endpoint, note where the actual response differs from what vendor docs claim. Wrong types, missing fields, fields present but always null, undocumented fields, pagination behavior, error shapes.
+4. **Distill.** Write `skills/<api-name>/SKILL.md` from observations only. Do not import vendor doc text. If you didn't observe it, it doesn't go in the skill.
+5. **Verify.** Have Claude write the integration against the new skill. Every time it asks a question the skill should have answered, the skill is incomplete — update it before continuing.
 
 ## Output Template for `skills/<api-name>/SKILL.md`
 
@@ -31,6 +32,7 @@ Before writing integration code against any third-party API where:
 
 ## Anti-patterns
 
+- Declaring a credentials blocker without first checking for public docs, public sandbox, or unauthenticated endpoints
 - Writing the skill from vendor docs and "verifying later"
 - Sanitizing real responses into TypeScript/Pydantic type definitions (lossy)
 - Omitting quirks because "they might get fixed"

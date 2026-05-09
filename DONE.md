@@ -27,3 +27,10 @@ See `.claude/commands/sp-done.md` for the sync workflow.
 | Task | Notes |
 | --- | --- |
 | Add warn-mode PostToolUse hook for file length budget enforcement | `.claude/hooks/check-density-budget.sh` + `.claude/settings.json`; fires on Write/Edit/MultiEdit, exits 2 with split reminder; fixed macOS `/tmp` symlink via `os.path.realpath` |
+
+## API Discovery Skill (2026-05-09)
+
+| Task | Notes |
+| --- | --- |
+| Add "Confirm access" step to pipeline | New step 1 before Probe; checks public docs/sandbox/unauth endpoints before treating credentials as a blocker; includes scaffold-on-block protocol (Output Template with Contents column preserved as imperatives) |
+| Add premature-blocker anti-pattern | Paired with step 1; surfaces lesson from incident where Rightsline/Mimir docs were public but assumed to require credentials |
