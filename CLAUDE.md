@@ -21,7 +21,7 @@ Files in `.claude/rules/` and `.claude/commands/` reference companion files (`DE
 ## Workflow
 
 1. Edit canonical files in `.claude/rules/`, `skills/api-discovery/`, or `templates/`.
-2. No auto-propagation. Consumer projects pull updates by repeating `SETUP.md`'s copy steps for the changed file(s).
+2. No auto-propagation. Consumer projects pull updates by running `scripts/update.sh /path/to/project`, or by repeating `SETUP.md`'s manual steps.
 3. `README.md` is the conceptual map ("what is this?"). `SETUP.md` is the procedure ("how do I install it?"). Keep them apart.
 
 ## Verification (No Build, No Tests)

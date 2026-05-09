@@ -18,7 +18,10 @@ Three opinionated rules for prototyping integration services. Copy them into a p
 
 ## Setup
 
-See [SETUP.md](SETUP.md). Four steps: create folders, copy nine files, point your `CLAUDE.md` at the rules, tune `DENSITY_BUDGET.md`.
+Two paths:
+
+- **Scripted**: `scripts/install.sh /path/to/your/project` (new or existing project, never overwrites). Use `scripts/update.sh /path/to/your/project` to refresh canonical files in an existing install.
+- **Manual**: see [SETUP.md](SETUP.md). Four steps: create folders, copy nine files, point your `CLAUDE.md` at the rules, tune `DENSITY_BUDGET.md`.
 
 ## How the Files Reference Each Other
 

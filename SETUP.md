@@ -2,6 +2,8 @@
 
 How to drop these skills into a project.
 
+Prefer to automate? Run `scripts/install.sh /path/to/your/project` from this repository. The steps below are equivalent — read them to understand what the script does.
+
 Make sure you have a copy of this repository on your computer (cloned with git or downloaded and extracted).
 
 **Step 1.** In your project's root directory, create three new folders:
