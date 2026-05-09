@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Update canonical service-prototyping-skills files in a project.
 # Overwrites: scope.md, doc-density.md, sp-done.md, api-discovery/SKILL.md.
+# Adds-if-missing: CLAUDE.md (user-edited; never overwritten).
 # Never touches templates (TODO/DONE/DECISIONS/DEFERRED). Diffs DENSITY_BUDGET.md.
 # Usage: update.sh [target_directory]   (default: current directory)
 
@@ -39,6 +40,14 @@ update_file "$SCRIPT_DIR/.claude/rules/scope.md"        ".claude/rules/scope.md"
 update_file "$SCRIPT_DIR/.claude/rules/doc-density.md"  ".claude/rules/doc-density.md"
 update_file "$SCRIPT_DIR/.claude/commands/sp-done.md"      ".claude/commands/sp-done.md"
 update_file "$SCRIPT_DIR/skills/api-discovery/SKILL.md" "skills/api-discovery/SKILL.md"
+
+# CLAUDE.md is user-edited; only fill in when missing.
+if [[ ! -f "CLAUDE.md" ]]; then
+  cp "$SCRIPT_DIR/templates/CLAUDE.md" "CLAUDE.md"
+  echo "  added   CLAUDE.md (was missing) — fill in TODO slots before next session"
+else
+  echo "  skipped CLAUDE.md (user-owned, never overwritten by update)"
+fi
 
 echo
 echo "Templates were not touched (they may contain project-specific content)."

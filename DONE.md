@@ -13,6 +13,15 @@ See `.claude/commands/sp-done.md` for the sync workflow.
 | Integrate `/done` command | Reconciled: 80-line CLAUDE.md cap, no `docs/` tier, DECISIONS/DEFERRED/skills step |
 | Add `scripts/install.sh` and `scripts/update.sh` | `install.sh` idempotent; `update.sh` preserves user state, diffs `DENSITY_BUDGET.md` |
 
+## Installer & Templates (2026-05-09)
+
+| Task | Notes |
+| --- | --- |
+| Add `templates/CLAUDE.md` skeleton | 30 lines; `@`-imports rules pre-wired; TODO slots for spec path + build commands; copied by install (never by update) |
+| Update `scripts/install.sh` | Copies `CLAUDE.md` if missing; branches closing message on whether CLAUDE.md was fresh or preserved; detects missing git repo and prints init command |
+| Update `scripts/update.sh` | Adds `CLAUDE.md` only if missing; never overwrites user-edited content |
+| Update `README.md` and `SETUP.md` | Table row for `templates/CLAUDE.md`; SETUP now 5 steps (was 4), 10 files (was 9); Step 5 is `git init` |
+
 ## Hooks & Enforcement (2026-05-09)
 
 | Task | Notes |

@@ -8,8 +8,9 @@ Three opinionated rules for prototyping integration services. Copy them into a p
 | ------------------------------- | ----------------------------------------------------------------------------- |
 | `.claude/rules/scope.md`        | What to build, what to defer. Forbids defensive coding not named in the spec. |
 | `.claude/rules/doc-density.md`  | High signal per page. Forbidden phrases, length budgets.                      |
-| `.claude/commands/sp-done.md`      | Session-end command: sync state files, update instructions, commit, push.     |
+| `.claude/commands/sp-done.md`   | Session-end command: sync state files, update instructions, commit, push.     |
 | `skills/api-discovery/SKILL.md` | Build per-API domain skills from observed behavior, not vendor docs.          |
+| `templates/CLAUDE.md`           | Project conventions skeleton with rule imports pre-wired and TODO slots.      |
 | `templates/DENSITY_BUDGET.md`   | Per-project length caps the density rule enforces.                            |
 | `templates/DECISIONS.md`        | Resolved spec ambiguity. Consulted by `scope.md`.                             |
 | `templates/DEFERRED.md`         | Items cut from scope. Written by `scope.md`.                                  |
@@ -21,7 +22,7 @@ Three opinionated rules for prototyping integration services. Copy them into a p
 Two paths:
 
 - **Scripted**: `scripts/install.sh /path/to/your/project` (new or existing project, never overwrites). Use `scripts/update.sh /path/to/your/project` to refresh canonical files in an existing install.
-- **Manual**: see [SETUP.md](SETUP.md). Four steps: create folders, copy nine files, point your `CLAUDE.md` at the rules, tune `DENSITY_BUDGET.md`.
+- **Manual**: see [SETUP.md](SETUP.md). Five steps: create folders, copy ten files, fill the `CLAUDE.md` template, tune `DENSITY_BUDGET.md`, `git init`.
 
 ## How the Files Reference Each Other
 

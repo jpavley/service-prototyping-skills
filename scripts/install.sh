@@ -18,6 +18,11 @@ cd "$TARGET"
 echo "Installing service-prototyping-skills into $TARGET"
 echo
 
+# Capture pre-state so the closing message can differentiate fresh-install
+# from overlay-on-existing-project.
+claude_md_existed_before=false
+[[ -f "CLAUDE.md" ]] && claude_md_existed_before=true
+
 mkdir -p .claude/rules .claude/commands skills/api-discovery
 
 copy_if_missing() {
@@ -35,17 +40,30 @@ copy_if_missing "$SCRIPT_DIR/.claude/rules/doc-density.md"  ".claude/rules/doc-d
 copy_if_missing "$SCRIPT_DIR/.claude/commands/sp-done.md"      ".claude/commands/sp-done.md"
 copy_if_missing "$SCRIPT_DIR/skills/api-discovery/SKILL.md" "skills/api-discovery/SKILL.md"
 
-for f in DENSITY_BUDGET.md DECISIONS.md DEFERRED.md TODO.md DONE.md; do
+for f in CLAUDE.md DENSITY_BUDGET.md DECISIONS.md DEFERRED.md TODO.md DONE.md; do
   copy_if_missing "$SCRIPT_DIR/templates/$f" "$f"
 done
 
-cat <<'EOF'
+echo
+echo "Done."
+echo
 
-Done. If your CLAUDE.md does not already point at the rules, add this block:
+if [[ "$claude_md_existed_before" == "true" ]]; then
+  cat <<'EOF'
+Your existing CLAUDE.md was preserved. Make sure it imports the rules:
 
-  Before any work, read:
-  - .claude/rules/scope.md — scope discipline
-  - .claude/rules/doc-density.md — doc length and prose
-  - DENSITY_BUDGET.md — per-project length caps
-  - DECISIONS.md and DEFERRED.md — running logs
+  @.claude/rules/scope.md
+  @.claude/rules/doc-density.md
+  @DENSITY_BUDGET.md
+
+(See templates/CLAUDE.md in this repo for the full skeleton.)
 EOF
+else
+  echo "Next: open CLAUDE.md and fill in the TODO slots (spec path, build commands)."
+fi
+
+if ! git rev-parse --git-dir >/dev/null 2>&1; then
+  echo
+  echo "This directory is not yet a git repository. To initialize:"
+  echo "  git init && git add . && git commit -m 'Initial commit: service-prototyping-skills'"
+fi
